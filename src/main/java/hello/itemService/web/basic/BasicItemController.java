@@ -70,10 +70,15 @@ public class BasicItemController {
         itemRepository.save(item);
         return "basic/item";
     }
-    @PostMapping("/add")
+//    @PostMapping("/add")
     public String addItemV4(Item item) {       // ModelAttribute 를 뺀 상태
         itemRepository.save(item);
         return "basic/item";
+    }
+    @PostMapping("/add")
+    public String addItemV5(Item item) {       // PRG  - Post/Redirect/Get
+        itemRepository.save(item);
+        return "redirect:/basic/items/" +  item.getId();
     }
 
     @GetMapping("/{itemId}/edit")
